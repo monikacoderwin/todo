@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todoapp</title>
+    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="container">
+        <h1>My To Do App</h1>
+        <br>
+        <div class="inputs">
+       <input type="text", id="inp", placeholder="Enter your task here">
+        <button onclick="Add()">Add</button>
+</div>
+<div>
+    <ul class="text">
+
+    </ul>
+</div>
+    </div>
+
+</body>
+<script type="text/javascript">
+let inputs=document.getElementById("inp");
+let text=document.querySelector(".text");
+function Add(){
+    if(inputs.value==""){
+        alert("please enter task");
+    }else{
+        let newEle= document.createElement("li");
+        newEle.innerHTML=`<span> ${inputs.value} </span> <i class="fa-solid fa-trash"></i>`;
+        text.appendChild(newEle);
+        inputs.value="";
+        newEle.querySelector("i").addEventListener("click",remove);
+        function remove(){
+            newEle.remove();
+        }
+    }
+}
+</script>
+</html>
